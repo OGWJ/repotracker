@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 function SearchForm({ getResult }) {
 
-    const [location, setLocation] = useState('London')
+    const [user, setUser] = useState()
 
     const handleSubmit = e => {
         e.preventDefault();
-        getResult(location);
+        getUser(user);
         // This conditional accounts for missing input value in mock userEvent
         if (e.target[0]) e.target[0].value = '';
     }
@@ -16,19 +16,11 @@ function SearchForm({ getResult }) {
         setLocation(input)
     }
 
-    const initInput = () => {
-        getResult(location);
-    }
-
-    useEffect(() => {
-        initInput();
-    }, [])
-
     return (
         <form onSubmit={handleSubmit} name="search-form">
 
-            <label htmlFor={'location'} style={{ visibility: 'hidden' }}>Location</label>
-            <input type="text" id="location" onChange={updateInput} />
+            <label htmlFor={'location'} style={{ visibility: 'hidden' }}>Username</label>
+            <input type="text" id="username" onChange={updateInput} />
             <input type="submit" value="Search" />
 
         </form>
