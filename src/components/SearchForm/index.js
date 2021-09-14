@@ -7,7 +7,7 @@ function SearchForm({ getResult }) {
     const handleSubmit = e => {
         e.preventDefault();
         getResult(location);
-        // conditional to prevent crash caused by mocked event in test
+        // This conditional accounts for missing input value in mock userEvent
         if (e.target[0]) e.target[0].value = '';
     }
 
@@ -21,7 +21,6 @@ function SearchForm({ getResult }) {
     }
 
     useEffect(() => {
-        console.log('called useEffect')
         initInput();
     }, [])
 
