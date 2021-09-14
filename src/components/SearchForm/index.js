@@ -19,7 +19,7 @@ function SearchForm({ getResult }) {
 
             <label>
                 Location
-                <input type="text" name="location" />
+                <input type="text" name="location" onChange={updateInput} />
             </label>
 
             <input type="submit" value="Search" />
