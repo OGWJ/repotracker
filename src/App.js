@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { NavBar } from './components';
+import { Welcome, About, Search } from './pages';
 
 function App() {
     return (
@@ -8,9 +9,15 @@ function App() {
             <NavBar />
             <main>
                 <Switch>
-                    <Route path="/" />
-                    <Route path="/about" />
-                    <Route path="/search" />
+                    <Route path="/">
+                        <Welcome />
+                    </Route>
+                    <Route path="/about">
+                        <About />
+                    </Route>
+                    <Route path="/search">
+                        <Search />
+                    </Route>
                 </Switch>
             </main>
         </div>
