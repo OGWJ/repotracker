@@ -5,6 +5,7 @@ function SearchForm({ getResult }) {
     const [location, setLocation] = useState("")
 
     const handleSubmit = e => {
+        e.preventDefault();
         getResult(location);
     }
 
