@@ -16,8 +16,14 @@ function SearchForm({ getResult }) {
 
     return (
         <form onSubmit={handleSubmit} name="search-form">
-            <input type="text" />
+
+            <label>
+                Location
+                <input type="text" name="location" />
+            </label>
+
             <input type="submit" value="Search" />
+
         </form>
     );
 };
