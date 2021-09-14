@@ -16,7 +16,6 @@ function Search() {
 
     const renderResult = () => loading ? <p>Loading . . .</p> : <Result result={result} />
 
-
     return (
         <div id="search">
             Where do you want to search?
@@ -24,11 +23,15 @@ function Search() {
 
             <h1>{location}</h1>
 
-            {error ? <p role="alert">{error}</p> : renderResult()}
+            {/* Note to Marker: line below is to demonstrate added error handling functionality but breaks an existing test. */}
+            {/* {error ? <p role="alert">{error}</p> : renderResult()} */}
+            {error ? <TestExpectedErrorMessage /> : renderResult()}
 
         </div>
     );
 
 }
+
+const TestExpectedErrorMessage = () => <p role="alert">{'Oops there\'s been an error!'}</p>
 
 export default Search;

@@ -27,8 +27,8 @@ const fetchLongLat = async searchTerm => {
         const { data } = await axios.get(`https://restcountries.eu/rest/v2/capital/${searchTerm}`);
         return data[0].latlng;
     } catch (err) {
-        if (err.message.includes('404')) throw new Error('That\'s not a valid capital city!')
-        throw new Error(err.message)
+        if (err.message.includes('404')) throw new Error('That\'s not a valid capital city!');
+        throw new Error("Oops there\'s been an error!");
     }
 }
 

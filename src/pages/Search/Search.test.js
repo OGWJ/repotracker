@@ -23,4 +23,5 @@ describe('Search', () => {
         let content = screen.getByText(/Loading/i)
         expect(content).toBeInTheDocument();
     });
+
 });
