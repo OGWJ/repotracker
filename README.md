@@ -2,7 +2,11 @@
 
 The blurb
 
-## Installation & usage
+Visit the app on netlify [![Netlify Status](https://api.netlify.com/api/v1/badges/0a0cd106-a752-4a0b-8bd4-b562426912b2/deploy-status)](https://app.netlify.com/sites/pedantic-almeida-f635ac/deploys)
+
+repotracker.netlify.app
+
+## Local Installation & usage
 
 ### Installation
 
