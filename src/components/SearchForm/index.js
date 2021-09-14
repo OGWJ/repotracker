@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 function SearchForm({ getResult }) {
 
@@ -13,7 +13,7 @@ function SearchForm({ getResult }) {
 
     const updateInput = e => {
         const input = e.target.value
-        setLocation(input)
+        setUser(input)
     }
 
     return (
