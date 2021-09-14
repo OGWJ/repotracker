@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 function SearchForm({ getResult }) {
 
-    const [ location, setLocation ] = useState("")
+    const [location, setLocation] = useState("")
 
-    handleSubmit = e => {
+    const handleSubmit = e => {
         getResult(location);
     }
 
-    updateInput = e => {
-        const input = e.target.value 
+    const updateInput = e => {
+        const input = e.target.value
         setLocation(input)
     }
 
