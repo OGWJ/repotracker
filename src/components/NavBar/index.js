@@ -1,10 +1,12 @@
 import React from 'react';
-import './style.css';
+import { UserSearchBar } from '..';
 
 const NavBar = () => {
 
     return (
-        <nav>
+        <nav className="navbar">
+            <h1>RepoTracker</h1>
+            <UserSearchBar />
             {/* this is a single page application... could put search bar in here */}
         </nav>
     );
