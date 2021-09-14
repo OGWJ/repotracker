@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { NavBar, RepoSearchBar } from './components';
+import { NavBar, RepoSearchBar, UserSearchBar } from './components';
 import { CardList } from './layout';
 
 import './style.css';
 
-const MainPage = () => {
-
-    const [user, setUser] = useState(true);
+const Main = ({ user, setUser }) => {
 
     const fakeRepos = [
         {
             name: 'Repo A',
+            dateCreated: '5-12-2020',
+            nForks: '5'
+        },
+        {
+            name: 'Repo B',
             dateCreated: '5-12-2020',
             nForks: '5'
         }
@@ -22,11 +25,15 @@ const MainPage = () => {
 
             <div id="content-column" className="">
 
-                <img
+                <UserSearchBar setUser={setUser} />
+
+                {/* commented out to prevent spamming of api */}
+                {/* <img
                     id="user-card"
                     src={`https://github-readme-stats.vercel.app/api?username=${user}`}
                     className="m-4"
-                />
+                /> */}
+
 
                 <RepoSearchBar />
 
@@ -41,16 +48,31 @@ const MainPage = () => {
 
     // else no user
     return (
-        <p>No user selected!</p>
+        <div className="vh-100 vw-100 d-flex flex-column justify-content-center">
+            <p>No user selected!</p>
+        </div>
     )
 
 }
+const Header = ({ user }) => {
+    return (
+        <h1>{user}</h1>
+    )
+}
 
 function App() {
+
+    const [user, setUser] = useState('ogwj');
+
     return (
         <div id="app">
-            <NavBar />
-            <MainPage />
+            {/* <NavBar setUser={setUser} /> */}
+            {/* temporary header to save user card api */}
+            <Header user={user} />
+            {/* <h2>{user}</h2> */}
+
+            <Main user={user} setUser={setUser} />
+            {/* <Footer /> */}
         </div>
     )
 }
