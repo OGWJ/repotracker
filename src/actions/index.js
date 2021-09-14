@@ -21,14 +21,13 @@ export const getResult = searchTerm => {
     };
 };
 
-
 // Helpers
 const fetchLongLat = async searchTerm => {
     try {
         const { data } = await axios.get(`https://restcountries.eu/rest/v2/capital/${searchTerm}`);
         return data[0].latlng;
     } catch (err) {
-        if (data.status === 404) { throw Error('That\'s not a valid capital city!') }
+        if (err.message.includes('404')) throw new Error('That\'s not a valid capital city!')
         throw new Error(err.message)
     }
 }

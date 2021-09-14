@@ -37,4 +37,6 @@ Users can search for a location name and they receive the time of today's sunris
 
 ## Bugs
 * **UI is not responsive or mobile friendly**
-* **axios fetch to LatitutdeLongitude api (src/actions/index.js fetchLongLat) is not correctly catching city not found error**
+* ~~**axios fetch to LatitutdeLongitude api (src/actions/index.js fetchLongLat ln.25) is not correctly catching city not found error**~~ (Fixed @OGWJ 14-09-21)
+  * Explanation: Catch block was trying to access the status property of a variable with the value of an axios response, but axios throws an error if status is not 2XX and the value of that variable is left undefined.
+  * Solution: Check if axios error message caught in catch block includes 404 (i.e. city not found) and throw our new custom error message.
