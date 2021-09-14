@@ -9,7 +9,7 @@ function App() {
             <NavBar />
             <main>
                 <Switch>
-                    <Route path="/">
+                    <Route exact path="/">
                         <Welcome />
                     </Route>
                     <Route path="/about">
