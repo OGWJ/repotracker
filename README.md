@@ -37,3 +37,4 @@ Users can search for a location name and they receive the time of today's sunris
 
 ## Bugs
 * **UI is not responsive or mobile friendly**
+* **axios fetch to LatitutdeLongitude api (src/actions/index.js fetchLongLat) is not correctly catching city not found error**
