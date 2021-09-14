@@ -15,7 +15,7 @@ function SearchForm({ getResult }) {
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} name="search-form">
             <input type="text" />
             <input type="submit" value="Search" />
         </form>
