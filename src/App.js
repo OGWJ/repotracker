@@ -19,6 +19,8 @@ const Main = ({ user, setUser }) => {
         }
     ]
 
+    const [repoQueryResults, setRepoQueryResults] = useState(fakeRepos);
+
     if (user) return (
 
         <main id="main-container" className="container d-flex justify-content-center">
@@ -28,17 +30,23 @@ const Main = ({ user, setUser }) => {
                 <UserSearchBar setUser={setUser} />
 
                 {/* commented out to prevent spamming of api */}
+                <div className="user-card"
+                    style={{
+                        background: `url(https://github-readme-stats.vercel.app/api?username=${user})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'
+                    }}>
+                </div>
+
                 {/* <img
-                    id="user-card"
-                    src={`https://github-readme-stats.vercel.app/api?username=${user}`}
-                    className="m-4"
-                /> */}
+                     id="user-card"
+                     src={`https://github-readme-stats.vercel.app/api?username=${user}`}
+                            className = "m-4"
+                            />  */}
 
 
-                <RepoSearchBar />
+                <RepoSearchBar setRepoQueryResults={setRepoQueryResults} allRepos={fakeRepos} />
 
                 <div id="cardlist-container" className="container">
-                    <CardList repoData={fakeRepos} />
+                    <CardList repoData={repoQueryResults} />
                 </div>
 
             </div>
@@ -66,11 +74,8 @@ function App() {
 
     return (
         <div id="app">
-            {/* <NavBar setUser={setUser} /> */}
             {/* temporary header to save user card api */}
-            <Header user={user} />
-            {/* <h2>{user}</h2> */}
-
+            {/* <Header user={user} /> */}
             <Main user={user} setUser={setUser} />
             {/* <Footer /> */}
         </div>
