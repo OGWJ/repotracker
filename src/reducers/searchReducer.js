@@ -1,4 +1,4 @@
-const initState = { location: "London", result: { sunrise: "6", sunset: "6" }, loading: false };
+const initState = { location: "", result: { sunrise: "", sunset: "" }, loading: false };
 
 const searchReducer = (state = initState, action) => {
     switch (action.type) {

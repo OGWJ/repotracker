@@ -24,8 +24,7 @@ function Search() {
 
             <h1>{location}</h1>
 
-            {/* if there is a result */}
-            {error ? <p role="alert">Oops there's been an error! {error}</p> : renderResult()}
+            {error ? <p role="alert">Oops there's been an error!</p> : renderResult()}
 
         </div>
     );

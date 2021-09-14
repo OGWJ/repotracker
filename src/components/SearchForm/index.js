@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 function SearchForm({ getResult }) {
 
-    const [location, setLocation] = useState("London")
+    const [location, setLocation] = useState('London')
 
     const handleSubmit = e => {
         e.preventDefault();
         getResult(location);
-        e.target[0].value = '';
+        // conditional to prevent crash caused by mocked event in test
+        if (e.target[0]) e.target[0].value = '';
     }
 
     const updateInput = e => {
@@ -20,6 +21,7 @@ function SearchForm({ getResult }) {
     }
 
     useEffect(() => {
+        console.log('called useEffect')
         initInput();
     }, [])
 

@@ -7,7 +7,7 @@ describe('SearchForm', () => {
 
     beforeEach(() => {
         getResultMock = jest.fn();
-        render(<SearchForm getResult={getResultMock}/>);
+        render(<SearchForm getResult={getResultMock} />);
     });
 
     test('it renders a form', () => {
@@ -18,6 +18,6 @@ describe('SearchForm', () => {
     test('it calls on getResult prop on form submission', () => {
         let locationInput = screen.getByLabelText('Location');
         userEvent.type(locationInput, "Hong Kong{enter}")
-        expect(getResultMock).toHaveBeenNthCalledWith(1, 'Hong Kong');
+        expect(getResultMock).toHaveBeenNthCalledWith(2, 'Hong Kong');
     })
 });
