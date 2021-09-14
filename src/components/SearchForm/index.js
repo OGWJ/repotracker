@@ -7,6 +7,7 @@ function SearchForm({ getResult }) {
     const handleSubmit = e => {
         e.preventDefault();
         getResult(location);
+        e.target[0].value = '';
     }
 
     const updateInput = e => {
@@ -25,11 +26,8 @@ function SearchForm({ getResult }) {
     return (
         <form onSubmit={handleSubmit} name="search-form">
 
-            <label>
-                Location
-                <input type="text" name="location" onChange={updateInput} />
-            </label>
-
+            <label htmlFor={'location'} style={{ visibility: 'hidden' }}>Location</label>
+            <input type="text" id="location" onChange={updateInput} />
             <input type="submit" value="Search" />
 
         </form>
