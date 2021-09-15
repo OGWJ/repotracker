@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavBar, RepoSearchBar, UserSearchBar } from './components';
 import { CardList } from './layout';
+
+// mock data with sample api resp
+import { repoData as sampleRepoData } from './data/repoData';
 
 import './style.css';
 
@@ -19,7 +22,19 @@ const Main = ({ user, setUser }) => {
         }
     ]
 
-    const [repoQueryResults, setRepoQueryResults] = useState(fakeRepos);
+    const [repoQueryResults, setRepoQueryResults] = useState(sampleRepoData);
+    const [userRepoData, setUserRepoData] = useState(sampleRepoData);
+
+    function getUserRepoData() {
+        return sampleRepoData;
+    }
+
+    useEffect(() => {
+        const repoData = getUserRepoData()
+        setUserRepoData(repoData);
+        setRepoQueryResults(repoData);
+        // if user changes download their github repo info
+    }, [user])
 
     if (user) return (
 
