@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 const UserSearchBar = ({ setUser }) => {
 
@@ -11,10 +12,10 @@ const UserSearchBar = ({ setUser }) => {
         <form name="user-search-bar" onSubmit={handleSubmit} className="py-4">
             <div className="row">
                 <div className="col">
-                    <input id="" placeholder="(@)GithubHandle" className="border-bottom" />
+                    <input id="" placeholder="> GithubHandle" className="border-bottom" />
                 </div>
                 <div className="col">
-                    <input type="submit" value="submit" className="btn btn-success" />
+                    <input type="submit" value="submit" className="btn btn-primary" />
                 </div>
             </div>
         </form >

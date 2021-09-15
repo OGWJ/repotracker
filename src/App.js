@@ -36,7 +36,7 @@ const Main = ({ user, setUser }) => {
         // if user changes download their github repo info
     }, [user])
 
-    if (user) return (
+    return (
 
         <main id="main-container" className="container d-flex justify-content-center">
 
@@ -44,42 +44,37 @@ const Main = ({ user, setUser }) => {
 
                 <UserSearchBar setUser={setUser} />
 
-                {/* commented out to prevent spamming of api */}
-                <div className="user-card"
-                    style={{
-                        background: `url(https://github-readme-stats.vercel.app/api?username=${user})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'
-                    }}>
-                </div>
+                {user ?
+                    <>
+                        {/* commented out to prevent spamming of api */}
+                        <div id="user-card"
+                            style={{
+                                background: `url(https://github-readme-stats.vercel.app/api?username=${user})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'
+                            }}>
+                        </div>
 
-                {/* <img
-                     id="user-card"
-                     src={`https://github-readme-stats.vercel.app/api?username=${user}`}
-                            className = "m-4"
-                            />  */}
+                        <RepoSearchBar setRepoQueryResults={setRepoQueryResults} allRepos={userRepoData} />
 
-
-                <RepoSearchBar setRepoQueryResults={setRepoQueryResults} allRepos={fakeRepos} />
-
-                <div id="cardlist-container" className="container">
-                    <CardList repoData={repoQueryResults} />
-                </div>
+                        <div id="cardlist-container" className="container">
+                            <CardList repoData={repoQueryResults} />
+                        </div>
+                    </> :
+                    null
+                }
 
             </div>
 
-        </main>
-    )
-
-    // else no user
-    return (
-        <div className="vh-100 vw-100 d-flex flex-column justify-content-center">
-            <p>No user selected!</p>
-        </div>
+        </main >
     )
 
 }
 const Header = ({ user }) => {
     return (
-        <h1>{user}</h1>
+        <div id="main-header" className="p-4 bg-dark text-white">
+            <h1>RepoTracker</h1>
+            <h3>tracking <b>{user ? `${user}` : `nobody`}</b></h3>
+
+        </div>
     )
 }
 
@@ -89,8 +84,7 @@ function App() {
 
     return (
         <div id="app">
-            {/* temporary header to save user card api */}
-            {/* <Header user={user} /> */}
+            <Header user={user} />
             <Main user={user} setUser={setUser} />
             {/* <Footer /> */}
         </div>

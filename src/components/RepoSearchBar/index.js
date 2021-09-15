@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 
 const RepoSearchBar = ({ setRepoQueryResults, allRepos }) => {
 
@@ -25,7 +26,7 @@ const RepoSearchBar = ({ setRepoQueryResults, allRepos }) => {
                         <input id="repo-search-bar" placeholder="repository name" className="border-bottom" onChange={handleUpdate} />
                     </div>
                     <div className="col">
-                        <input type="submit" value="submit" className="btn btn-success" />
+                        <input type="submit" value="submit" className="btn btn-secondary" />
                     </div>
                 </div>
             </form >
