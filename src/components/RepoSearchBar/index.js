@@ -9,13 +9,14 @@ const RepoSearchBar = ({ setRepoQueryResults, allRepos }) => {
     }
 
     const handleUpdate = e => {
-        if (!e.target.value) setRepoQueryResults(allRepos)
+        if (!allRepos) return;
+        if (!e.target.value) setRepoQueryResults(allRepos.data)
         let query = (e.target.value).toLowerCase();
         let retval = [];
-        allRepos.forEach(repo => {
+        allRepos.data.forEach(repo => {
             if (repo.name.toLowerCase().includes(query)) retval.push(repo);
         })
-        setRepoQueryResults(retval);
+        setRepoQueryResults({ data: retval });
     }
 
     return (
