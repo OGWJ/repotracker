@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CardList, RepoSearchBar, UserSearchBar } from './components';
+import { Header, CardList, RepoSearchBar, UserSearchBar } from './components';
 import { fetchUserInfo } from './actions';
 import './style.css';
 
@@ -28,9 +28,9 @@ const Main = ({ user, setUser }) => {
 
                 <UserSearchBar setUser={setUser} />
 
-                {user ?
+                {user && !userRepoData ? <h2 className="m-4">No data for {user}</h2> : null}
+                {user && userRepoData ?
                     <>
-                        {/* commented out to prevent spamming of api */}
                         <div id="user-card"
                             style={{
                                 background: `url(https://github-readme-stats.vercel.app/api?username=${user})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center'
@@ -51,15 +51,6 @@ const Main = ({ user, setUser }) => {
         </main >
     )
 
-}
-const Header = ({ user }) => {
-    return (
-        <div id="main-header" className="p-4 bg-dark text-white">
-            <h1>RepoTracker</h1>
-            <h3>tracking <b>{user ? `${user}` : `nobody`}</b></h3>
-
-        </div>
-    )
 }
 
 function App() {
