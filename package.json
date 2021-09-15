@@ -1,14 +1,11 @@
 {
-  "name": "lap_3_debug_assignment",
+  "name": "repotracker",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
-    "build": "webpack --config config/webpack.config.production.js",
-    "test": "jest --watch --silent --setupFilesAfterEnv ./src/test/setupTests.js",
-    "coverage": "jest --silent --setupFilesAfterEnv ./src/test/setupTests.js --coverage --watchAll=false",
-    "autograde": "jest --silent --setupFilesAfterEnv ./src/test/setupTests.js"
+    "build": "webpack --config config/webpack.config.production.js"
   },
   "jest": {
     "moduleNameMapper": {

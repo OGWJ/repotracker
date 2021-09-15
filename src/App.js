@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavBar, RepoSearchBar, UserSearchBar } from './components';
-import { CardList } from './layout';
-
+import { CardList, RepoSearchBar, UserSearchBar } from './components';
 // mock data with sample api resp
 import { repoData as sampleRepoData } from './data/repoData';
 

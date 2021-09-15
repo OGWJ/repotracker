@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+
 .card {
     transition: 0.3s;
+    border-width: 1px !important;
+    border-color:rgb(231, 231, 231) !important;
 }
 
 .card:hover {
@@ -9,13 +13,18 @@
 }
 
 h5, h6, p, a {
-    font-weight: bold !important;
+    font-family: 'PT Sans', sans-serif;
     text-decoration: none !important;
 }
 
-h5 { font-size: 22px !important }
-h6 { font-size: 18px !important }
-p { font-size: 16px !important }
+h5 { 
+    font-size: 16px !important;
+     color: rgb(78, 146, 235) }
+h6 { 
+    font-size: 14px !important;
+    color: rgb(40, 44, 49) !important }
+p, li { font-size: 10px !important;
+    color: rgb(40, 44, 49) !important }
 
 ul {
     list-style: none;
