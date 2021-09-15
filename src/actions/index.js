@@ -1,10 +1,12 @@
 import axios from 'axios';
 
-const fetchUserInfo = async userName => {
+export const fetchUserInfo = async userName => {
     try {
-        const resp = await axios.get(`https://api.github.com/users/${userName}`);
-        return data;
+        const resp = await axios.get(`https://api.github.com/users/${userName}/repos`);
+        console.log(resp);
+        return resp;
     } catch (err) {
+        console.warn(err);
         return undefined;
     }
 }

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CardList, RepoSearchBar, UserSearchBar } from './components';
 // mock data with sample api resp
 import { repoData as sampleRepoData } from './data/repoData';
+import { fetchUserInfo } from './actions';
 
 import './style.css';
 
@@ -23,12 +24,14 @@ const Main = ({ user, setUser }) => {
     const [repoQueryResults, setRepoQueryResults] = useState(sampleRepoData);
     const [userRepoData, setUserRepoData] = useState(sampleRepoData);
 
-    function getUserRepoData() {
-        return sampleRepoData;
+    async function getUserRepoData() {
+        const retval = await fetchUserInfo(user);
+        return retval;
+        // return sampleRepoData;
     }
 
-    useEffect(() => {
-        const repoData = getUserRepoData()
+    useEffect(async () => {
+        const repoData = await getUserRepoData();
         setUserRepoData(repoData);
         setRepoQueryResults(repoData);
         // if user changes download their github repo info

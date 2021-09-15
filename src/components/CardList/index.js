@@ -1,9 +1,11 @@
 import React from 'react';
-import { RepoCard } from '../../components';
+import { RepoCard } from '..';
 
 const CardList = ({ repoData }) => {
+    console.log(`repoData`);
+    console.log(repoData.data);
     return (
-        repoData.map(data => {
+        repoData.data.map(data => {
             return <RepoCard data={data} />
         })
     )
