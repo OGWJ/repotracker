@@ -1,33 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { CardList, RepoSearchBar, UserSearchBar } from './components';
-// mock data with sample api resp
-import { repoData as sampleRepoData } from './data/repoData';
 import { fetchUserInfo } from './actions';
-
 import './style.css';
 
 const Main = ({ user, setUser }) => {
 
-    const fakeRepos = [
-        {
-            name: 'Repo A',
-            dateCreated: '5-12-2020',
-            nForks: '5'
-        },
-        {
-            name: 'Repo B',
-            dateCreated: '5-12-2020',
-            nForks: '5'
-        }
-    ]
-
-    const [repoQueryResults, setRepoQueryResults] = useState(sampleRepoData);
-    const [userRepoData, setUserRepoData] = useState(sampleRepoData);
+    const [repoQueryResults, setRepoQueryResults] = useState([]);
+    const [userRepoData, setUserRepoData] = useState([]);
 
     async function getUserRepoData() {
         const retval = await fetchUserInfo(user);
         return retval;
-        // return sampleRepoData;
     }
 
     useEffect(async () => {
@@ -81,13 +64,12 @@ const Header = ({ user }) => {
 
 function App() {
 
-    const [user, setUser] = useState('ogwj');
+    const [user, setUser] = useState('');
 
     return (
         <div id="app">
             <Header user={user} />
             <Main user={user} setUser={setUser} />
-            {/* <Footer /> */}
         </div>
     )
 }
