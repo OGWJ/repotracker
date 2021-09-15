@@ -1,7 +1,5 @@
 # RepoTracker
 
-The blurb
-
 Visit the app on [netlify](http://repotracker.netlify.app)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/0a0cd106-a752-4a0b-8bd4-b562426912b2/deploy-status)](https://app.netlify.com/sites/pedantic-almeida-f635ac/deploys)
@@ -20,10 +18,6 @@ Visit the app on [netlify](http://repotracker.netlify.app)
 * In your browser you may now open the RepoTracker app at the url `localhost:8080`
 * Enjoy.
 
-## Changelog
-
-### 14 September 2021
-* **Added README.md**
-
 ## Bugs
-* **Example bug**
+* **Responsivity can make text too small**
+* **UI does not differentiate between loading and error state (defaults to 'No data for username')**
